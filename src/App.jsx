@@ -184,7 +184,7 @@ function Identity() {
     <section className="section identity" id="identity">
       <div className="container identity__grid">
         <div>
-          <SectionHead eyebrow="Our identity" title={identity.title} />
+          <SectionHead eyebrow="Inspiration for the brand identity" title={identity.title} />
           {identity.text.map((p) => (
             <p key={p}>{p}</p>
           ))}

@@ -16,7 +16,7 @@ export const links = {
 export const nav = [
   { id: 'about', label: 'About' },
   { id: 'forum', label: 'Forum Alpbach' },
-  { id: 'identity', label: 'Dijla & Furat' },
+  { id: 'identity', label: 'Inspiration for the Brand Identity' },
   { id: 'scholarship', label: 'Scholarship' },
   { id: 'team', label: 'Team' },
   { id: 'contact', label: 'Contact' },
