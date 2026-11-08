@@ -45,4 +45,6 @@ Brand images are in `public/brand/`. They were taken from the CAI brand files: `
 
 ## Deploy
 
-`.github/workflows/deploy.yml` builds the site and publishes it to GitHub Pages on every push to `main`. To turn it on, go to the repository's **Settings → Pages** and set **Source** to **GitHub Actions**. Asset paths are relative (`base: './'`), so the build also works on any static host such as Netlify or Vercel.
+The site is hosted on Vercel (project `cai`). Vercel builds and publishes it automatically whenever new code is pushed to the production branch. Change the production branch under **Vercel → cai → Settings → Git**.
+
+Asset paths are relative (`base: './'`), so the build also works on any other static host.
