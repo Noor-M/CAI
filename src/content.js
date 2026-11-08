@@ -99,7 +99,6 @@ export const scholarship = {
 export const team = [
   { name: 'Asma Jwtyar Ali', role: 'President' },
   { name: 'Khalil Hassan', role: 'Vice President & Treasurer' },
-  { name: 'Enje Jawher', role: 'Media & Communications Officer' },
   { name: 'Noor Mohammed', role: 'Scholarship & Engagement Officer' },
   { name: 'Mohammed Ali', role: 'Events & Admin Officer' },
 ]
