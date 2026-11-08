@@ -52,7 +52,7 @@ function Header() {
   )
 }
 
-// The red-square callout used across the CAI brand kit ("CIRCLE", "DIJLA", "FURAT").
+// The red-square callout used across the CAI brand kit ("CIRCLE", "TIGRIS", "EUPHRATES").
 function Callout({ label, className = '' }) {
   return (
     <span className={`callout ${className}`} aria-hidden="true">
@@ -202,8 +202,8 @@ function Identity() {
         </div>
         <figure className="identity__map">
           <img
-            src="brand/dijla-furat-map.png"
-            alt="Map of Iraq with the Tigris (Dijla) and Euphrates (Furat) rivers highlighted"
+            src="brand/tigris-euphrates-map.png"
+            alt="Map of Iraq with the Tigris and Euphrates rivers highlighted"
             loading="lazy"
           />
         </figure>

@@ -3,7 +3,7 @@
 A one-page portfolio site for **Club Alpbach Iraq (CAI)**, the Iraqi chapter of the Forum Alpbach Network. It is built with React and Vite.
 
 The design follows the CAI brand kit (roll-up, PowerPoint, letterhead and certificate):
-- the Dijla & Furat globe
+- the Tigris & Euphrates globe
 - blue `#557FBF`, black type and the grey `#E6E6E6`
 - the red-square callouts
 
@@ -30,14 +30,14 @@ All text, links and board members are in [`src/content.js`](src/content.js):
 - **Testimonials**: add quotes to `testimonials`. The "Voices" section shows up once the array has at least one entry.
 - **Links and email**: edit `links`.
 
-Brand images are in `public/brand/`. They were taken from the CAI brand files: `logo-full.png`, `globe.png`, `dijla-furat-map.png` and the two Alpbach photos.
+Brand images are in `public/brand/`. They were taken from the CAI brand files: `logo-full.png`, `globe.png`, `tigris-euphrates-map.png` and the two Alpbach photos.
 
 ## Sections
 
 1. Hero
 2. About
 3. European Forum Alpbach (seminars, symposia, fireside chats)
-4. Inspiration for the brand identity: Dijla & Furat and values (Trust, One Piece)
+4. Inspiration for the brand identity: Tigris & Euphrates and values (Trust, One Piece)
 5. Scholarship path
 6. Board
 7. Contact and socials

@@ -75,7 +75,7 @@ export const forum = {
 export const identity = {
   title: 'Two rivers, one piece',
   text: [
-    'Our mark is a globe crossed by two lines: Dijla and Furat, the Tigris and the Euphrates. The rivers that shaped Mesopotamia run through every Club Alpbach Iraq design, from our roll-up to our certificates.',
+    'Our mark is a globe crossed by two lines: the Tigris and the Euphrates. The rivers that shaped Mesopotamia run through every Club Alpbach Iraq design, from our roll-up to our certificates.',
     'They stand for where we come from and for what we do: two streams that run apart and meet, the way Iraq and Alpbach meet through our members.',
   ],
   values: [
