@@ -94,7 +94,7 @@ export const forum = {
       title: 'Fireside Chats',
       label: 'FIRE SIDE CHAT',
       text: 'Informal meetings and fireside conversations, where difficult topics can be discussed openly with leading figures, away from the public.',
-      image: '/brand/fireside-chat.jpg',
+      image: '/brand/fireside-alpbach.jpg', // evening on the meadow in Alpbach
     },
   ],
 }
