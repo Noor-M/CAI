@@ -22,26 +22,33 @@ export const nav = [
   { id: 'contact', label: 'Contact' },
 ]
 
-// Alumni Gathering RSVP. Answers go to the "CAI Gathering 26 RSVP" Google Sheet
-// through the Apps Script in google-apps-script/rsvp.gs.
-export const rsvp = {
-  // Paste the Apps Script web app URL (ends in /exec) here after deploying it.
-  // It can also be set with the VITE_RSVP_ENDPOINT environment variable (e.g. in Vercel).
-  endpoint:
-    import.meta.env.VITE_RSVP_ENDPOINT ||
-    'https://script.google.com/macros/s/AKfycbziTbC6v2o0hYw5NweGJoli24w6hHghc1UqBAc8fos1QNY5bRoDF2_MlAXA6YehVRnjtw/exec',
-  title: 'CAI Alumni Gathering',
-  date: 'Saturday, 21 November',
-  time: '3:30\u20136:00 pm',
-  place: 'YouthHub, Erbil',
-  replyBy: 'Thursday, 19 November',
-  intro: 'Please reply by Thursday, 19 November so we can plan for numbers.',
-  // Times in Erbil (UTC+3). The form closes after the deadline; the section disappears after the event.
-  closesAt: '2026-11-19T23:59:59+03:00',
-  hideAfter: '2026-11-21T18:00:00+03:00',
-  attending: ['Yes, I\u2019ll be there', 'Maybe', 'No, I can\u2019t make it'],
-  guests: ['No, just me', 'Yes, one guest', 'Yes, two guests'],
-}
+// Events page (/events). Add new events to this list; the newest upcoming one is shown first.
+// Times are Erbil time (UTC+3). After `rsvpClosesAt` the form closes; after `endsAt` the event
+// moves to "Past events".
+export const events = [
+  {
+    id: 'alumni-gathering-2026',
+    title: 'CAI Alumni Gathering 2026',
+    image: '/brand/fireside-chat.jpg',
+    summary: 'An afternoon for CAI alumni to meet again.',
+    date: 'Saturday, 21 November 2026',
+    time: '3:30\u20136:00 pm',
+    place: 'YouthHub, Erbil',
+    replyBy: 'Thursday, 19 November',
+    intro: 'Please reply by Thursday, 19 November so we can plan for numbers.',
+    rsvpClosesAt: '2026-11-19T23:59:59+03:00',
+    endsAt: '2026-11-21T18:00:00+03:00',
+    rsvp: {
+      // Google Apps Script web app that writes replies to the "CAI Gathering 26 RSVP" sheet
+      // (see google-apps-script/rsvp.gs). VITE_RSVP_ENDPOINT overrides it if set.
+      endpoint:
+        import.meta.env.VITE_RSVP_ENDPOINT ||
+        'https://script.google.com/macros/s/AKfycbziTbC6v2o0hYw5NweGJoli24w6hHghc1UqBAc8fos1QNY5bRoDF2_MlAXA6YehVRnjtw/exec',
+      attending: ['Yes, I\u2019ll be there', 'Maybe', 'No, I can\u2019t make it'],
+      guests: ['No, just me', 'Yes, one guest', 'Yes, two guests'],
+    },
+  },
+]
 
 export const hero = {
   tag: 'Forum Alpbach Network',
@@ -74,21 +81,21 @@ export const forum = {
       title: 'Seminar Week',
       label: 'CIRCLE',
       text: 'Interdisciplinary seminars led by renowned academics. Scholarship holders attend seminars and form lasting connections with peers from across the world.',
-      image: 'brand/alpbach-congress.jpg',
+      image: '/brand/alpbach-congress.jpg',
       zoom: true, // close-up of the round courtyard
     },
     {
       title: 'Symposia',
       label: 'STAGE',
       text: 'Focused conferences on health, technology, politics, economics, art and culture, with large panel discussions, break-out sessions and workshops.',
-      image: 'brand/alpbach-congress.jpg',
+      image: '/brand/alpbach-congress.jpg',
       position: 'center 20%', // the terrace crowd and the mountains
     },
     {
       title: 'Fireside Chats',
       label: 'FIRE SIDE CHAT',
       text: 'Informal meetings and fireside conversations, where difficult topics can be discussed openly with leading figures, away from the public.',
-      image: 'brand/fireside-chat.jpg',
+      image: '/brand/fireside-chat.jpg',
     },
   ],
 }

@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// base './' keeps asset paths relative so the build works on GitHub Pages or any sub-path.
+// Absolute base so assets load on nested routes such as /events/<id>.
 export default defineConfig({
   plugins: [react()],
-  base: './',
+  base: '/',
 })

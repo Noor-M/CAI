@@ -43,25 +43,25 @@ Brand images are in `public/brand/`. They were taken from the CAI brand files: `
 7. Contact and socials
 8. Footer
 
-## Alumni Gathering RSVP
+## Events
 
-The RSVP section (`src/components/Rsvp.jsx`) sends replies to the **CAI Gathering 26 RSVP** Google Sheet. It goes through a Google Apps Script web app that runs under the club.iraq@alpbach.network account.
+The site has two kinds of page:
+- **Home (`/`)**: all the sections described above.
+- **Events (`/events`)**: a list of events. Clicking an event opens its own page at `/events/<id>`, with the details and an RSVP form.
 
-To connect it (one time, from the CAI Google account):
+Events are listed in `events` in `src/content.js`. To add one, copy the existing entry and change its `id`, text, dates and RSVP settings. Each event moves through three stages based on its dates:
+- **Upcoming:** the RSVP form is open.
+- **RSVP closed:** after `rsvpClosesAt`, the form is replaced with a "closed" message.
+- **Past event:** after `endsAt`, the event moves to "Past events".
 
-1. Open the sheet, then **Extensions → Apps Script**.
-2. Paste in the contents of [`google-apps-script/rsvp.gs`](google-apps-script/rsvp.gs) and save.
-3. Choose **Deploy → New deployment → Web app**. Set **Execute as: Me** and **Who has access: Anyone**, deploy, and approve the permissions.
-4. Copy the web app URL, which ends in `/exec`. Then either:
-   - paste it into `rsvp.endpoint` in `src/content.js` and push, or
-   - set it as `VITE_RSVP_ENDPOINT` in Vercel (Settings → Environment Variables) and redeploy.
+### RSVP and Google Sheets
 
-Each reply is added as a row on a tab called `RSVPs`, which the script creates on the first reply.
+The CAI Alumni Gathering 2026 RSVP form sends replies to the **CAI Gathering 26 RSVP** Google Sheet. It goes through a Google Apps Script web app that runs under the club.iraq@alpbach.network account. The script's code is in [`google-apps-script/rsvp.gs`](google-apps-script/rsvp.gs), and its URL is in `rsvp.endpoint` for the event (or in `VITE_RSVP_ENDPOINT`). Each reply is added as a row on the sheet's `RSVPs` tab.
 
-Until the URL is set, the form asks people to email the club instead. The form closes after the reply deadline (`rsvp.closesAt`), and the whole section disappears once the event is over (`rsvp.hideAfter`).
+If you change the script, choose **Deploy → Manage deployments → Edit → Version: New version** in Apps Script. That keeps the same URL, so the website doesn't need updating.
 
 ## Deploy
 
 The site is hosted on Vercel (project `cai`). Vercel builds and publishes it automatically whenever new code is pushed to the production branch. Change the production branch under **Vercel → cai → Settings → Git**.
 
-Asset paths are relative (`base: './'`), so the build also works on any other static host.
+`vercel.json` sends every route to `index.html`, so links such as `/events/alumni-gathering-2026` load directly. Any other host needs the same single-page-app fallback.

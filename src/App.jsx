@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react'
+import { Link, NavLink, Route, Routes, useLocation } from 'react-router-dom'
 import { about, forum, hero, identity, links, nav, scholarship, team, testimonials } from './content.js'
-import Rsvp, { rsvpState } from './components/Rsvp.jsx'
+import { EventPage, EventsPage } from './pages/Events.jsx'
 
 function Wordmark({ light = false }) {
   return (
-    <a href="#top" className={`wordmark ${light ? 'wordmark--light' : ''}`} aria-label="Club Alpbach Iraq, home">
-      <img src="brand/globe.png" alt="" width="40" height="40" />
+    <Link to="/" className={`wordmark ${light ? 'wordmark--light' : ''}`} aria-label="Club Alpbach Iraq, home">
+      <img src="/brand/globe.png" alt="" width="40" height="40" />
       <span>
         Club Alpbach <strong>Iraq</strong>
       </span>
-    </a>
+    </Link>
   )
 }
 
@@ -40,19 +41,13 @@ function Header() {
         </button>
         <nav id="site-nav" className={`nav ${open ? 'nav--open' : ''}`}>
           {nav.map((n) => (
-            <a key={n.id} href={`#${n.id}`} onClick={() => setOpen(false)}>
+            <a key={n.id} href={`/#${n.id}`} onClick={() => setOpen(false)}>
               {n.label}
             </a>
           ))}
-          {rsvpState() === 'hidden' ? (
-            <a className="btn btn--small" href={links.instagram} target="_blank" rel="noreferrer">
-              Instagram
-            </a>
-          ) : (
-            <a className="btn btn--small" href="#rsvp" onClick={() => setOpen(false)}>
-              RSVP
-            </a>
-          )}
+          <NavLink className="btn btn--small" to="/events" onClick={() => setOpen(false)}>
+            Events
+          </NavLink>
         </nav>
       </div>
     </header>
@@ -111,11 +106,11 @@ function Hero() {
         </div>
         <figure className="hero__media">
           <img
-            src="brand/alpbach-congress.jpg"
+            src="/brand/alpbach-congress.jpg"
             alt="Reception on the roof of the Alpbach congress centre, with mountains behind"
           />
           <Callout label="CIRCLE" className="hero__callout" />
-          <img className="hero__globe" src="brand/globe.png" alt="" />
+          <img className="hero__globe" src="/brand/globe.png" alt="" />
         </figure>
       </div>
     </section>
@@ -209,7 +204,7 @@ function Identity() {
         </div>
         <figure className="identity__map">
           <img
-            src="brand/tigris-euphrates-map.png"
+            src="/brand/tigris-euphrates-map.png"
             alt="Map of Iraq with the Tigris and Euphrates rivers highlighted"
             loading="lazy"
           />
@@ -348,10 +343,11 @@ function Footer() {
         </div>
         <nav className="footer__nav" aria-label="Footer">
           {nav.map((n) => (
-            <a key={n.id} href={`#${n.id}`}>
+            <a key={n.id} href={`/#${n.id}`}>
               {n.label}
             </a>
           ))}
+          <Link to="/events">Events</Link>
         </nav>
         <div className="footer__meta">
           <a href={links.efaClubPage} target="_blank" rel="noreferrer">
@@ -368,23 +364,65 @@ function Footer() {
   )
 }
 
+// Scroll to the top on page changes, or to the #section when one is given (e.g. /#about from /events).
+function ScrollManager() {
+  const { pathname, hash } = useLocation()
+  useEffect(() => {
+    if (hash) {
+      const el = document.getElementById(hash.slice(1))
+      if (el) {
+        el.scrollIntoView()
+        return
+      }
+    }
+    window.scrollTo(0, 0)
+  }, [pathname, hash])
+  return null
+}
+
+function Home() {
+  return (
+    <>
+      <Hero />
+      <About />
+      <Forum />
+      <Identity />
+      <Scholarship />
+      <Voices />
+      <Team />
+      <Contact />
+    </>
+  )
+}
+
+function NotFound() {
+  return (
+    <section className="page-head">
+      <div className="container">
+        <h1>Page not found</h1>
+        <p className="page-head__lead">
+          <Link to="/">Back to the home page</Link>
+        </p>
+      </div>
+    </section>
+  )
+}
+
 export default function App() {
   return (
     <>
-      <a className="skip" href="#about">
+      <a className="skip" href="#main">
         Skip to content
       </a>
+      <ScrollManager />
       <Header />
-      <main>
-        <Hero />
-        <Rsvp />
-        <About />
-        <Forum />
-        <Identity />
-        <Scholarship />
-        <Voices />
-        <Team />
-        <Contact />
+      <main id="main">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/events" element={<EventsPage />} />
+          <Route path="/events/:id" element={<EventPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </main>
       <Footer />
     </>
