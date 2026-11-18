@@ -860,3 +860,226 @@ button:focus-visible {
     transition: none !important;
   }
 }
+
+/* ---------- RSVP ---------- */
+.rsvp {
+  background: var(--ink);
+  color: #fff;
+}
+.rsvp p {
+  color: rgba(255, 255, 255, 0.78);
+}
+.rsvp .eyebrow {
+  color: #fff;
+}
+.rsvp__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: clamp(32px, 6vw, 80px);
+  align-items: start;
+}
+.rsvp__info h2 {
+  font-size: clamp(36px, 5vw, 60px);
+  margin-bottom: 32px;
+}
+.rsvp__facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 0 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+}
+.rsvp__facts div {
+  padding: 16px 16px 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+.rsvp__facts dt {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-bottom: 4px;
+}
+.rsvp__facts dd {
+  margin: 0;
+  font-size: 19px;
+}
+.rsvp__card {
+  background: #fff;
+  color: var(--ink);
+  border-radius: var(--radius);
+  padding: clamp(24px, 4vw, 40px);
+}
+.rsvp__card p {
+  color: var(--ink-soft);
+}
+
+.form {
+  display: grid;
+  gap: 24px;
+}
+.field {
+  display: grid;
+  gap: 8px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+.field label,
+.field legend {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4;
+  padding: 0;
+}
+.field legend {
+  margin-bottom: 8px;
+}
+.req {
+  color: var(--red);
+}
+.field input,
+.field textarea {
+  width: 100%;
+  font: inherit;
+  font-size: 16px;
+  color: var(--ink);
+  padding: 12px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  transition: border-color 0.15s;
+}
+.field textarea {
+  resize: vertical;
+}
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(85, 127, 191, 0.2);
+}
+.input--short {
+  max-width: 160px;
+}
+.field--error input,
+.field--error textarea {
+  border-color: #c62828;
+}
+.field__error,
+.form__error {
+  margin: 0;
+  font-size: 14px;
+  color: #c62828 !important;
+}
+.form__error {
+  padding: 12px 14px;
+  background: #fdecec;
+  border-radius: var(--radius);
+}
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.field .choice {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px 10px 12px;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 400 !important;
+  font-size: 15px !important;
+  transition: border-color 0.15s, background 0.15s;
+}
+.choice input {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  padding: 0;
+  border: 1.5px solid var(--muted);
+  border-radius: 50%;
+  flex: none;
+}
+.field .choice:hover {
+  border-color: var(--blue);
+}
+.field .choice--on {
+  border-color: var(--blue);
+  background: rgba(85, 127, 191, 0.1);
+}
+.choice--on input {
+  border-color: var(--blue);
+  background: radial-gradient(circle, var(--blue) 0 4px, transparent 5px);
+}
+.choice input:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+.field--error .choice {
+  border-color: #e3a3a3;
+}
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.form__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.form__note {
+  font-size: 14px;
+  color: var(--muted);
+}
+.btn:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+button.btn {
+  cursor: pointer;
+  font-family: inherit;
+}
+.rsvp__done {
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+}
+.rsvp__done h3 {
+  font-size: 28px;
+}
+.rsvp__check {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--blue);
+  position: relative;
+  margin-bottom: 8px;
+}
+.rsvp__check::after {
+  content: '';
+  position: absolute;
+  left: 17px;
+  top: 12px;
+  width: 10px;
+  height: 18px;
+  border: solid #fff;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+@media (max-width: 960px) {
+  .rsvp__grid {
+    grid-template-columns: 1fr;
+  }
+}

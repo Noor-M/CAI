@@ -22,6 +22,25 @@ export const nav = [
   { id: 'contact', label: 'Contact' },
 ]
 
+// Alumni Gathering RSVP. Answers go to the "CAI Gathering 26 RSVP" Google Sheet
+// through the Apps Script in google-apps-script/rsvp.gs.
+export const rsvp = {
+  // Paste the Apps Script web app URL (ends in /exec) here after deploying it.
+  // It can also be set with the VITE_RSVP_ENDPOINT environment variable (e.g. in Vercel).
+  endpoint: import.meta.env.VITE_RSVP_ENDPOINT || '',
+  title: 'CAI Alumni Gathering',
+  date: 'Saturday, 21 November',
+  time: '3:30\u20136:00 pm',
+  place: 'YouthHub, Erbil',
+  replyBy: 'Thursday, 19 November',
+  intro: 'Please reply by Thursday, 19 November so we can plan for numbers.',
+  // Times in Erbil (UTC+3). The form closes after the deadline; the section disappears after the event.
+  closesAt: '2026-11-19T23:59:59+03:00',
+  hideAfter: '2026-11-21T18:00:00+03:00',
+  attending: ['Yes, I\u2019ll be there', 'Maybe', 'No, I can\u2019t make it'],
+  guests: ['No, just me', 'Yes, one guest', 'Yes, two guests'],
+}
+
 export const hero = {
   tag: 'Forum Alpbach Network',
   lead:

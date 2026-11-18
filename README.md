@@ -43,6 +43,23 @@ Brand images are in `public/brand/`. They were taken from the CAI brand files: `
 7. Contact and socials
 8. Footer
 
+## Alumni Gathering RSVP
+
+The RSVP section (`src/components/Rsvp.jsx`) sends replies to the **CAI Gathering 26 RSVP** Google Sheet. It goes through a Google Apps Script web app that runs under the club.iraq@alpbach.network account.
+
+To connect it (one time, from the CAI Google account):
+
+1. Open the sheet, then **Extensions → Apps Script**.
+2. Paste in the contents of [`google-apps-script/rsvp.gs`](google-apps-script/rsvp.gs) and save.
+3. Choose **Deploy → New deployment → Web app**. Set **Execute as: Me** and **Who has access: Anyone**, deploy, and approve the permissions.
+4. Copy the web app URL, which ends in `/exec`. Then either:
+   - paste it into `rsvp.endpoint` in `src/content.js` and push, or
+   - set it as `VITE_RSVP_ENDPOINT` in Vercel (Settings → Environment Variables) and redeploy.
+
+Each reply is added as a row on a tab called `RSVPs`, which the script creates on the first reply.
+
+Until the URL is set, the form asks people to email the club instead. The form closes after the reply deadline (`rsvp.closesAt`), and the whole section disappears once the event is over (`rsvp.hideAfter`).
+
 ## Deploy
 
 The site is hosted on Vercel (project `cai`). Vercel builds and publishes it automatically whenever new code is pushed to the production branch. Change the production branch under **Vercel → cai → Settings → Git**.

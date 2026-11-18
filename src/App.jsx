@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { about, forum, hero, identity, links, nav, scholarship, team, testimonials } from './content.js'
+import Rsvp, { rsvpState } from './components/Rsvp.jsx'
 
 function Wordmark({ light = false }) {
   return (
@@ -43,9 +44,15 @@ function Header() {
               {n.label}
             </a>
           ))}
-          <a className="btn btn--small" href={links.instagram} target="_blank" rel="noreferrer">
-            Instagram
-          </a>
+          {rsvpState() === 'hidden' ? (
+            <a className="btn btn--small" href={links.instagram} target="_blank" rel="noreferrer">
+              Instagram
+            </a>
+          ) : (
+            <a className="btn btn--small" href="#rsvp" onClick={() => setOpen(false)}>
+              RSVP
+            </a>
+          )}
         </nav>
       </div>
     </header>
@@ -370,6 +377,7 @@ export default function App() {
       <Header />
       <main>
         <Hero />
+        <Rsvp />
         <About />
         <Forum />
         <Identity />
