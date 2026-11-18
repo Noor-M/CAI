@@ -27,7 +27,9 @@ export const nav = [
 export const rsvp = {
   // Paste the Apps Script web app URL (ends in /exec) here after deploying it.
   // It can also be set with the VITE_RSVP_ENDPOINT environment variable (e.g. in Vercel).
-  endpoint: import.meta.env.VITE_RSVP_ENDPOINT || '',
+  endpoint:
+    import.meta.env.VITE_RSVP_ENDPOINT ||
+    'https://script.google.com/macros/s/AKfycbziTbC6v2o0hYw5NweGJoli24w6hHghc1UqBAc8fos1QNY5bRoDF2_MlAXA6YehVRnjtw/exec',
   title: 'CAI Alumni Gathering',
   date: 'Saturday, 21 November',
   time: '3:30\u20136:00 pm',
