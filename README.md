@@ -36,7 +36,7 @@ Brand images are in `public/brand/`. They were taken from the CAI brand files: `
 
 1. Hero
 2. About
-3. European Forum Alpbach (seminars, symposia, fireside chats)
+3. European Forum Alpbach (Seminar Week, Conference Week, Fireside Chats)
 4. Inspiration for the brand identity: Tigris & Euphrates and values (Trust, One Piece)
 5. Scholarship path
 6. Board

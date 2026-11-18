@@ -81,11 +81,10 @@ export const forum = {
       title: 'Seminar Week',
       label: 'CIRCLE',
       text: 'Interdisciplinary seminars led by renowned academics. Scholarship holders attend seminars and form lasting connections with peers from across the world.',
-      image: '/brand/alpbach-congress.jpg',
-      zoom: true, // close-up of the round courtyard
+      image: '/brand/seminar-week.jpg', // EFA 2026 session on stage
     },
     {
-      title: 'Symposia',
+      title: 'Conference Week',
       label: 'STAGE',
       text: 'Focused conferences on health, technology, politics, economics, art and culture, with large panel discussions, break-out sessions and workshops.',
       image: '/brand/alpbach-congress.jpg',
@@ -95,7 +94,7 @@ export const forum = {
       title: 'Fireside Chats',
       label: 'FIRE SIDE CHAT',
       text: 'Informal meetings and fireside conversations, where difficult topics can be discussed openly with leading figures, away from the public.',
-      image: '/brand/youthhub-erbil.jpg', // YouthHub, Erbil (black and white, square)
+      image: '/brand/fireside-chat.jpg',
     },
   ],
 }
@@ -119,7 +118,7 @@ export const scholarship = {
   steps: [
     { n: '01', title: 'Apply', text: 'Follow our channels for the call for applications and submit yours through the Forum Alpbach scholarship portal.' },
     { n: '02', title: 'Get selected', text: 'Applications are reviewed and selected scholarship holders are welcomed into the CAI community.' },
-    { n: '03', title: 'Experience Alpbach', text: 'Join seminars, symposia and fireside chats with thousands of participants in Tyrol.' },
+    { n: '03', title: 'Experience Alpbach', text: 'Join the seminar week, the conference week and fireside chats with thousands of participants in Tyrol.' },
     { n: '04', title: 'Bring it home', text: 'Share what you learned through CAI events and help the next generation get there.' },
   ],
 }
