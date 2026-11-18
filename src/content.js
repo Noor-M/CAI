@@ -29,7 +29,7 @@ export const events = [
   {
     id: 'alumni-gathering-2026',
     title: 'CAI Alumni Gathering 2026',
-    image: '/brand/fireside-chat.jpg',
+    image: '/brand/youthhub-erbil.jpg', // YouthHub, Erbil (black and white, square)
     summary: 'An afternoon for CAI alumni to meet again.',
     date: 'Saturday, 21 November 2026',
     time: '3:30\u20136:00 pm',
@@ -95,7 +95,7 @@ export const forum = {
       title: 'Fireside Chats',
       label: 'FIRE SIDE CHAT',
       text: 'Informal meetings and fireside conversations, where difficult topics can be discussed openly with leading figures, away from the public.',
-      image: '/brand/fireside-chat.jpg',
+      image: '/brand/youthhub-erbil.jpg', // YouthHub, Erbil (black and white, square)
     },
   ],
 }
